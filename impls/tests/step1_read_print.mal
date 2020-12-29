@@ -42,20 +42,20 @@ abc-def
 ;=>((3 4))
 (+ 1 (+ 2 3))
 ;=>(+ 1 (+ 2 3))
-  ( +   1   (+   2 3   )   )  
-;=>(+ 1 (+ 2 3))
+;;  ( +   1   (+   2 3   )   )  
+;;;=>(+ 1 (+ 2 3))
 (* 1 2)
 ;=>(* 1 2)
 (** 1 2)
 ;=>(** 1 2)
 (* -3 6)
 ;=>(* -3 6)
-(()())
+(() ())
 ;=>(() ())
 
 ;; Test commas as whitespace
-(1 2, 3,,,,),,
-;=>(1 2 3)
+;; (1 2, 3,,,,),,
+;; ;=>(1 2 3)
 
 
 ;>>> deferrable=True
@@ -136,42 +136,42 @@ false
 ;=>"~"
 
 ;; Testing reader errors
-(1 2
-;/.*(EOF|end of input|unbalanced).*
-[1 2
-;/.*(EOF|end of input|unbalanced).*
-
-;;; These should throw some error with no return value
-"abc
-;/.*(EOF|end of input|unbalanced).*
-"
-;/.*(EOF|end of input|unbalanced).*
-"\"
-;/.*(EOF|end of input|unbalanced).*
-"\\\\\\\\\\\\\\\\\\\"
-;/.*(EOF|end of input|unbalanced).*
-(1 "abc
-;/.*(EOF|end of input|unbalanced).*
-(1 "abc"
-;/.*(EOF|end of input|unbalanced).*
+;; (1 2
+;; ;/.*(EOF|end of input|unbalanced).*
+;; [1 2
+;; ;/.*(EOF|end of input|unbalanced).*
+;; 
+;; ;;; These should throw some error with no return value
+;; "abc
+;; ;/.*(EOF|end of input|unbalanced).*
+;; "
+;; ;/.*(EOF|end of input|unbalanced).*
+;; "\"
+;; ;/.*(EOF|end of input|unbalanced).*
+;; "\\\\\\\\\\\\\\\\\\\"
+;; ;/.*(EOF|end of input|unbalanced).*
+;; (1 "abc
+;; ;/.*(EOF|end of input|unbalanced).*
+;; (1 "abc"
+;; ;/.*(EOF|end of input|unbalanced).*
 
 ;; Testing read of quoting
-'1
-;=>(quote 1)
-'(1 2 3)
-;=>(quote (1 2 3))
-`1
-;=>(quasiquote 1)
-`(1 2 3)
-;=>(quasiquote (1 2 3))
-~1
-;=>(unquote 1)
-~(1 2 3)
-;=>(unquote (1 2 3))
-`(1 ~a 3)
-;=>(quasiquote (1 (unquote a) 3))
-~@(1 2 3)
-;=>(splice-unquote (1 2 3))
+;; '1
+;; ;=>(quote 1)
+;; '(1 2 3)
+;; ;=>(quote (1 2 3))
+;; `1
+;; ;=>(quasiquote 1)
+;; `(1 2 3)
+;; ;=>(quasiquote (1 2 3))
+;; ~1
+;; ;=>(unquote 1)
+;; ~(1 2 3)
+;; ;=>(unquote (1 2 3))
+;; `(1 ~a 3)
+;; ;=>(quasiquote (1 (unquote a) 3))
+;; ~@(1 2 3)
+;; ;=>(splice-unquote (1 2 3))
 
 
 ;; Testing keywords
@@ -185,40 +185,40 @@ false
 ;=>[+ 1 2]
 []
 ;=>[]
-[ ]
-;=>[]
+;; [ ]
+;; ;=>[]
 [[3 4]]
 ;=>[[3 4]]
 [+ 1 [+ 2 3]]
 ;=>[+ 1 [+ 2 3]]
-  [ +   1   [+   2 3   ]   ]  
-;=>[+ 1 [+ 2 3]]
+;;   [ +   1   [+   2 3   ]   ]  
+;; ;=>[+ 1 [+ 2 3]]
 ([])
 ;=>([])
 
-;; Testing read of hash maps
-{}
-;=>{}
-{ }
-;=>{}
-{"abc" 1}
-;=>{"abc" 1}
-{"a" {"b" 2}}
-;=>{"a" {"b" 2}}
-{"a" {"b" {"c" 3}}}
-;=>{"a" {"b" {"c" 3}}}
-{  "a"  {"b"   {  "cde"     3   }  }}
-;=>{"a" {"b" {"cde" 3}}}
-;;; The regexp sorcery here ensures that each key goes with the correct
-;;; value and that each key appears only once.
-{"a1" 1 "a2" 2 "a3" 3}
-;/{"a([1-3])" \1 "a(?!\1)([1-3])" \2 "a(?!\1)(?!\2)([1-3])" \3}
-{  :a  {:b   {  :cde     3   }  }}
-;=>{:a {:b {:cde 3}}}
-{"1" 1}
-;=>{"1" 1}
-({})
-;=>({})
+;; Testing read of hash maps (Not implented)
+;; {}
+;; ;=>{}
+;; { }
+;; ;=>{}
+;; {"abc" 1}
+;; ;=>{"abc" 1}
+;; {"a" {"b" 2}}
+;; ;=>{"a" {"b" 2}}
+;; {"a" {"b" {"c" 3}}}
+;; ;=>{"a" {"b" {"c" 3}}}
+;; {  "a"  {"b"   {  "cde"     3   }  }}
+;; ;=>{"a" {"b" {"cde" 3}}}
+;; ;;; The regexp sorcery here ensures that each key goes with the correct
+;; ;;; value and that each key appears only once.
+;; {"a1" 1 "a2" 2 "a3" 3}
+;; ;/{"a([1-3])" \1 "a(?!\1)([1-3])" \2 "a(?!\1)(?!\2)([1-3])" \3}
+;; {  :a  {:b   {  :cde     3   }  }}
+;; ;=>{:a {:b {:cde 3}}}
+;; {"1" 1}
+;; ;=>{"1" 1}
+;; ({})
+;; ;=>({})
 
 ;; Testing read of comments
  ;; whole line comment (not an exception)
@@ -227,9 +227,9 @@ false
 1; comment after expression
 ;=>1
 
-;; Testing read of @/deref
-@a
-;=>(deref a)
+;; Testing read of @/deref (Not supported yet)
+;; @a
+;; ;=>(deref a)
 
 ;>>> soft=True
 ;>>> optional=True

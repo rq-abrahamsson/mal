@@ -1,14 +1,18 @@
 ﻿module REPL
   open System
+  open Common.Reader
+  open Common.Writer
 
-  let READ input =
-    input
+  let READ (input : string) =
+    readString input
 
   let EVAL ast =
     ast
 
-  let PRINT input =
-    printfn "%s" input
+  let PRINT ast =
+    match ast with
+    | Ok ast -> printfn "%s" (writeString ast)
+    | Error errorString -> printfn "%s" errorString
 
   let REP input =
     input
