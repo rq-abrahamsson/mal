@@ -9,5 +9,5 @@ module Common.Types
     | EBool of bool
     | EList of Expression list
     | EVector of Expression list
-    | EBuiltInFunc of (obj list -> obj)
+    | EBuiltInFunc of (Expression list -> Expression)
 

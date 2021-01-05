@@ -1,16 +1,8 @@
 ﻿namespace Common
 open FParsec
+open Types
 
 module Reader =
-
-  type Expression =
-    | EString of string
-    | EKeyword of string
-    | ESymbol of string
-    | ENumber of int64
-    | EBool of bool
-    | EList of Expression list
-    | EVector of Expression list
 
   let private ws = spaces
   let private str s = pstring s
