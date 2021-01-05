@@ -1,6 +1,6 @@
 module Common.Writer
 
-  open Common.Reader
+  open Common.Types
 
   let rec private expressionToString(ast : Expression) =
     match ast with
@@ -12,6 +12,8 @@ module Common.Writer
     | EBool false -> "false"
     | EList l -> "(" + (l |> List.map expressionToString |> String.concat " ") + ")"
     | EVector v -> "[" + (v |> List.map expressionToString |> String.concat " ") + "]"
+    | EBuiltInFunc f -> "fun(" + string f + ")"
+    | ENil -> "nil"
 
   let writeString ast =
     ast

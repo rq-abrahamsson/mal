@@ -5,8 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Types.fs" />
         <Compile Include="Reader.fs" />
         <Compile Include="Writer.fs" />
+        <Compile Include="Env.fs" />
+        <Compile Include="Eval.fs" />
     </ItemGroup>
 
     <ItemGroup>

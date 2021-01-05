@@ -6,6 +6,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Common", "Common\Common.fsp
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "step1_read_print", "step1_read_print\step1_read_print.fsproj", "{0B92CF9A-8854-4AEA-910D-A735933945D1}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "step2_eval", "step2_eval\step2_eval.fsproj", "{DE4CAD93-6AAA-4AB4-BF1A-FA23344C2233}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{0B92CF9A-8854-4AEA-910D-A735933945D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B92CF9A-8854-4AEA-910D-A735933945D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B92CF9A-8854-4AEA-910D-A735933945D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4CAD93-6AAA-4AB4-BF1A-FA23344C2233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4CAD93-6AAA-4AB4-BF1A-FA23344C2233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4CAD93-6AAA-4AB4-BF1A-FA23344C2233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4CAD93-6AAA-4AB4-BF1A-FA23344C2233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
