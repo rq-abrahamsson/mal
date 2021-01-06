@@ -1,5 +1,7 @@
 module Common.Types
 
+  open System.Collections.Generic
+
   type Expression =
     | ENil
     | EString of string
@@ -10,4 +12,6 @@ module Common.Types
     | EList of Expression list
     | EVector of Expression list
     | EBuiltInFunc of (Expression list -> Expression)
+  type Environment = Dictionary<string, Expression>
+  type EnvironmentChain = Environment list
 
